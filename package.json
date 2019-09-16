@@ -29,7 +29,8 @@
     ]
   },
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "react-router-dom": "^5.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
