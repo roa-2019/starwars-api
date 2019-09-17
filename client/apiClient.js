@@ -16,5 +16,5 @@ const rootUrl = ' https://api.wheretheiss.at/v1/'
 export function getSatellite(id) {
   console.log(id)
   return request.get(rootUrl + 'satellites/' + id)
-  .catch(error => console.log())
+  .catch(error => console.log(body.response))
 }
