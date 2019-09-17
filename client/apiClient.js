@@ -1,10 +1,20 @@
 import request from 'superagent'
 
-const rootUrl = '/api/v1'
+const rootUrl = ' https://api.wheretheiss.at/v1/'
 
-export function getFruits () {
-  return request.get(rootUrl + '/fruits')
-    .then(res => {
-      return res.body.fruits
-    })
+
+// function getSatellite(id) {
+//   return request.get(rootUrl + 'satellites/' + id)
+//   .then(response => {
+//     const details = response.body
+//     return details
+//   })
+// }
+
+//OR Implicit Return
+
+export function getSatellite(id) {
+  console.log(id)
+  return request.get(rootUrl + 'satellites/' + id)
+  .catch(error => console.log())
 }
