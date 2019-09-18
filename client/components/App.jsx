@@ -1,14 +1,15 @@
 import React from 'react'
 import { HashRouter as Router, Route, Link } from 'react-router-dom'
 import { getSatellite } from '../apiClient'
+import DisplayData from './DisplayData'
 const issId = 25544
-// let data = this.state.satellite
 
 import People from './People'
 import Planets from './Planets'
 import Starships from './Starships'
 import About from './About'
 import Home from './Home'
+
 
 
 // const App = () => {
@@ -40,12 +41,12 @@ class App extends React.Component {
   }
 
 
-   handleClick = (e) => {
-     e.preventDefault()
+  handleClick = (e) => {
+    e.preventDefault()
     this.getSatelliteData()
   }
 
-  
+
   getSatelliteData = () => {
     return getSatellite(issId)
       .then(satellite => {
@@ -55,27 +56,29 @@ class App extends React.Component {
       })
   }
 
+
+
   render() {
-    console.log(this.state)
+
     const data = this.state.satellite
-    console.log(data)
-    console.log(Object.values(data))
+
     return (
       <>
+        <DisplayData data={data} />
         <h1>International Space Station</h1>
-        <p>Lat: {this.state.satellite.latitude}</p>
-        <p>Lng: {this.state.satellite.longitude}</p>
+        <p>Lat: {data.latitude}</p>
+        <p>Lng: {data.longitude}</p>
         <button onClick={this.handleClick}>Refresh</button>
-        {/* {this.state.satellite.map((satellites, i) => console.log(satellite.text))} */}
-        {/* {data.map((satellite, i) => <p>{Object.values(satellite)}</p>)} */}
-        {/* {data.map(satellite => {console.log('hello'))}} */}
-        {data.map(data => (
-          <li>{data.text}</li>
-        ))}
       </>
     )
   }
 }
+
+// const App = () => {
+// <div className = 'app'>
+
+// </div>
+// }
 
 
 
