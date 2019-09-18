@@ -1,13 +1,14 @@
 const express = require('express')
 
 const db = require('../db')
+require('dotenv').config()
 
 const router = express.Router()
 
 router.get('/', (req, res) => {
-  db.getFruits()
-    .then(fruits => {
-      res.json({fruits})
+  db.getSatellite()
+    .then(satellite => {
+      res.json({satellite})
     })
 })
 
