@@ -30,8 +30,9 @@
   },
   "dependencies": {
     "express": "^4.16.4",
-    "react-router-dom": "^5.0.1",
     "knex": "^0.19.3",
+    "nock": "^11.3.4",
+    "react-router-dom": "^5.0.1",
     "sqlite3": "^4.1.0"
   },
   "devDependencies": {

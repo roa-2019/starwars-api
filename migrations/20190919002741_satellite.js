@@ -4,7 +4,7 @@ exports.up = function (knex, Promise) {
         table.increments('id').primary()
         table.time('created_at')
         table.string('latitude')
-        table.string('longtitude')
+        table.string('longitude')
 
     })
 };
