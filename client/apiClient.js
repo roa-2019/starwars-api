@@ -8,10 +8,14 @@ export function getSatellite(id) {
 }
 
 export function leapFrog() {
-  console.log(Date(Date.now()).toString())
   request.post('/api/v1/satellite/')
-  .then(result => {
-    console.log(JSON.parse(JSON.parse(result.text).text))
-  })
+    .then(result => {
+    })
 }
+
+export function recieveSatellite() {
+  return request.get('/api/v1/satellite/')
+    .catch(error => console.log(error))
+}
+
 

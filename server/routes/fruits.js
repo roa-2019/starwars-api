@@ -15,24 +15,25 @@ router.get('/', (req, res) => {
 })
 
 
-
 router.post('/', (req, res) => {
   request.get('https://api.wheretheiss.at/v1/satellites/' + issId)
     .then(result => {
       let spaceData = JSON.parse(result.text)
       let satellite = {
-        latitude : spaceData.latitude,
-        longitude : spaceData.longitude,
+        latitude: spaceData.latitude,
+        longitude: spaceData.longitude,
         created_at: spaceData.timestamp
       }
       db.addSatellite(satellite)
-      .then(() => {
-        res.send()
-      })
+        .then(() => {
+          res.send()
+        })
     })
     .catch(e => {
       console.log('error', e)
     })
 })
+
+
 
 module.exports = router

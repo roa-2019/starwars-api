@@ -6,8 +6,10 @@ function addSatellite(satellite) {
   return db('satellite').insert(satellite)
 }
 
-
+function getSatellite() {
+  return db('satellite').select()
+}
 
 module.exports = {
-   addSatellite
+  addSatellite, getSatellite
 }
