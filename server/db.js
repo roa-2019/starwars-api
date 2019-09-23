@@ -10,6 +10,10 @@ function getSatellite() {
   return db('satellite').select()
 }
 
+function deleteSatelliteData() {
+  return db('satellite').del()
+}
+
 module.exports = {
-  addSatellite, getSatellite
+  addSatellite, getSatellite, deleteSatelliteData
 }

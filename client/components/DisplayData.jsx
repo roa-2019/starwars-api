@@ -1,5 +1,5 @@
 import React from 'react'
-import { recieveSatellite, leapFrog } from '../apiClient'
+import { deleteSatelliteData, recieveSatellite, leapFrog } from '../apiClient'
 const issId = 25544
 
 
@@ -13,23 +13,32 @@ class DisplayData extends React.Component {
 
   componentDidMount() {
     this.getSatelliteData()
-    leapFrog()
-
   }
 
-  // handleClick = (e) => {
-  //   e.preventDefault()
-  //   this.getSatelliteData()
-  // }
+  handleClick = (e) => {
+    e.preventDefault()
+    this.getSatelliteData()
+  }
+
+  handleDelete = (e) => {
+    return deleteSatelliteData()
+    .then(() => {
+      this.setState({satellites: []})
+    })
+  }
 
   getSatelliteData = () => {
-    return recieveSatellite()
+    return leapFrog()
+    .then(() => {
+      return recieveSatellite()
       .then(satellite => {
+        console.log(satellite.body)
         this.setState({
           satellites: JSON.parse(satellite.text).satellite
-
         })
       })
+    })
+      
   }
 
 
@@ -38,8 +47,10 @@ class DisplayData extends React.Component {
     const { satellites } = this.state
     return (
       <>
+        <button onClick={this.handleDelete}>Delete</button>
+
         {satellites.map((satellite) =>
-          <div key ={satellite.id} className = 'tile'>
+          <div key={satellite.id} className='tile'>
             <h4>Logged: {satellite.created_at}</h4>
             <li >
               Lat.{satellite.latitude}<br></br>
@@ -48,13 +59,6 @@ class DisplayData extends React.Component {
             <br></br>
           </div>
         )}
-        {/* <h1>International Space Station</h1>
-        <p>Lat: {data.latitude}</p>
-        <p>Lng: {data.longitude}</p>
-        <p>Logged: {data.timestamp}</p> */}
-
-
-
         <button onClick={this.handleClick}>Refresh</button>
       </>
     )

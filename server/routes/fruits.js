@@ -34,6 +34,15 @@ router.post('/', (req, res) => {
     })
 })
 
+router.delete('/', (req, res) => {
+  db.deleteSatelliteData()
+    .then(() => {
+      res.send()
+    })
+    .catch(e => {
+      console.log('error', e)
+    })
+})
 
 
 module.exports = router

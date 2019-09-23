@@ -8,14 +8,18 @@ export function getSatellite(id) {
 }
 
 export function leapFrog() {
-  request.post('/api/v1/satellite/')
-    .then(result => {
-    })
+  return request.post('/api/v1/satellite/')
 }
 
 export function recieveSatellite() {
   return request.get('/api/v1/satellite/')
     .catch(error => console.log(error))
+}
+
+export function deleteSatelliteData() {
+  return request.delete('/api/v1/satellite')
+  .catch(error => console.log(error))
+
 }
 
 
