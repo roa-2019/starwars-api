@@ -1,5 +1,5 @@
 import React from 'react'
-import { recieveSatellite , leapFrog } from '../apiClient'
+import { recieveSatellite, leapFrog } from '../apiClient'
 const issId = 25544
 
 
@@ -13,14 +13,14 @@ class DisplayData extends React.Component {
 
   componentDidMount() {
     this.getSatelliteData()
-    leapFrog()  
+    leapFrog()
 
   }
 
-  handleClick = (e) => {
-    e.preventDefault()
-    this.getSatelliteData()
-  }
+  // handleClick = (e) => {
+  //   e.preventDefault()
+  //   this.getSatelliteData()
+  // }
 
   getSatelliteData = () => {
     return recieveSatellite()
@@ -35,11 +35,19 @@ class DisplayData extends React.Component {
 
   render() {
 
-    const {satellites} = this.state
-    console.log(satellites)
+    const { satellites } = this.state
     return (
       <>
-      {satellites.map((satellite) => <li>{satellite.latitude}{satellite.longitude}</li>)}
+        {satellites.map((satellite) =>
+          <div key ={satellite.id} className = 'tile'>
+            <h4>Logged: {satellite.created_at}</h4>
+            <li >
+              Lat.{satellite.latitude}<br></br>
+              Long.{satellite.longitude}
+            </li>
+            <br></br>
+          </div>
+        )}
         {/* <h1>International Space Station</h1>
         <p>Lat: {data.latitude}</p>
         <p>Lng: {data.longitude}</p>
