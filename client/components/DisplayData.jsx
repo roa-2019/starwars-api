@@ -48,6 +48,7 @@ class DisplayData extends React.Component {
     return (
       <>
         <button onClick={this.handleDelete}>Delete</button>
+        <button onClick={this.handleClick}>Refresh</button>
 
         {satellites.map((satellite) =>
           <div key={satellite.id} className='tile'>
@@ -59,7 +60,6 @@ class DisplayData extends React.Component {
             <br></br>
           </div>
         )}
-        <button onClick={this.handleClick}>Refresh</button>
       </>
     )
   }

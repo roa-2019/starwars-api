@@ -18,7 +18,8 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   request.get('https://api.wheretheiss.at/v1/satellites/' + issId)
     .then(result => {
-      let spaceData = JSON.parse(result.text)
+      console.log(result.body)
+      let spaceData = result.body
       let satellite = {
         latitude: spaceData.latitude,
         longitude: spaceData.longitude,
