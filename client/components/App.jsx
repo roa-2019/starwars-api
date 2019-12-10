@@ -8,7 +8,7 @@ const App = () => (
   <Router>
     <div className='app'>
       <div className='header'>
-        <Nav />
+        {/* <Nav /> */}
       </div>
       <DisplayData />
     </div>

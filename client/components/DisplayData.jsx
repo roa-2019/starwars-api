@@ -48,7 +48,7 @@ class DisplayData extends React.Component {
     return (
       <>
         <button onClick={this.handleDelete}>Delete</button>
-        <button onClick={this.handleClick}>Refresh</button>
+        <button onClick={this.handleClick}>Get Co-ordinates</button>
 
         {satellites.map((satellite) =>
           <div key={satellite.id} className='tile'>
