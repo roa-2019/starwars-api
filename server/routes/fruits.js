@@ -23,7 +23,7 @@ router.post('/', (req, res) => {
       let satellite = {
         latitude: spaceData.latitude,
         longitude: spaceData.longitude,
-        created_at: spaceData.timestamp
+        created_at: spaceData.timestamp,
       }
       db.addSatellite(satellite)
         .then(() => {

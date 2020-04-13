@@ -47,15 +47,15 @@ class DisplayData extends React.Component {
     const { satellites } = this.state
     return (
       <>
-        <button onClick={this.handleDelete}>Delete</button>
         <button onClick={this.handleClick}>Get Co-ordinates</button>
-
-        {satellites.map((satellite) =>
+        <button onClick={this.handleDelete}>Delete</button>
+          
+          {satellites.map((satellite) =>
           <div key={satellite.id} className='tile'>
-            <h4>Logged: {satellite.created_at}</h4>
+            <h3>Timestamp: {satellite.created_at}</h3>
             <li >
               Lat.{satellite.latitude}<br></br>
-              Long.{satellite.longitude}
+              Long.{satellite.longitude}<br></br>
             </li>
             <br></br>
           </div>
